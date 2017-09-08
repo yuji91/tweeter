@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+    <h1>Tweets List</h1>
+    <%= link_to "Create Tweet", new_tweet_path, class: 'btn btn-primary' %>
+    <p></p>
+    <% @tweets.each do |tweet| %>
+    <div class="row">
+      <div class="col-sm-8"><%= tweet.content %></div>
+      <div class="col-sm-4"><%= link_to "Edit", edit_tweet_path(tweet.id),
+      class: 'btn btn-default btn-sm btn-success' %>
+      <%= link_to "Delete", tweet_path(tweet.id), method: :delete,
+      data: { confirm: 'Are you sure to delete this tweet?'},
+      class: 'btn btn-default btn-sm btn btn-danger' %></div>
+    </div>
+    <% end %>
+  </div>
+</div>
